@@ -1,6 +1,3 @@
-require './lib/user'
-require './lib/joke'
-
 class OpenMic
 
   attr_reader :location, :date, :performers
@@ -16,24 +13,13 @@ class OpenMic
 
   def repeated_jokes?
     all_jokes = []
-
-    i = 0
-    while i < @performers.count
-
-      n = 0
-      while n < @performers[i].jokes.count
-        if @performers[i].jokes[n] == nil
-          n += 1
-        else
-          all_jokes << @performers[i].jokes[n]
-          n += 1
-        end
+    @performers.each do |performer|
+      performer.jokes.each do |joke|
+        all_jokes << joke
       end
-
-      i += 1
     end
-
     all_jokes.uniq != all_jokes
   end
+
 
 end

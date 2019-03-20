@@ -60,9 +60,8 @@ class OpenMicTest < Minitest::Test
     assert_equal expected, actual
   end
 
-## Ali learns a duplicate joke
-  def test_ali_tells_sal_a_duplicate_joke
 
+  def test_ali_tells_sal_a_duplicate_joke
     @open_mic.welcome(@sal)
     @open_mic.welcome(@ali)
 
